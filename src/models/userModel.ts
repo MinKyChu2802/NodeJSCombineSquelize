@@ -1,14 +1,13 @@
-import { Model, Sequelize } from 'sequelize';
+import { Model, Sequelize } from "sequelize";
 import { UserModel } from "../types";
-
 
 interface IUserModel extends Model<UserModel>, UserModel {}
 
-export const initUser = (sequelize: Sequelize,DataTypes:any) => {
+export const initUser = (sequelize: Sequelize, DataTypes: any) => {
   const attributes = {
     id: {
       type: DataTypes.STRING,
-      primaryKey: true
+      primaryKey: true,
     },
     username: {
       type: DataTypes.STRING,
@@ -25,8 +24,8 @@ export const initUser = (sequelize: Sequelize,DataTypes:any) => {
   };
 
   const options = {
-    tableName: 'users',
+    tableName: "users",
   };
 
-  return sequelize.define<IUserModel>('User', attributes, options);
+  return sequelize.define<IUserModel>("User", attributes, options);
 };

@@ -19,12 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 // routers
 app.use("/api", router);
 
-// testing api
-app.get("/", (req: Request, res: Response) => {
-  res.json({ message: "hello from api" });
-});
-
-sequelize.sync()
+sequelize
+  .sync({ force: true })
   .then(() => {
     console.log("Tables created successfully.");
   })

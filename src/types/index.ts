@@ -11,6 +11,8 @@ export type UserModel = Model & {
 };
 
 export type ReviewModel = Model & {
-  rating: string,
-  description: string
-}
+  id: string;
+  rating: string;
+  description: string;
+  userId?: string | null;
+};

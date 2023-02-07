@@ -1,4 +1,4 @@
-import { User } from "../models";
+import { Review, User } from "../models";
 import { Request, Response } from "express";
 import { v4 as uuidv4 } from "uuid";
 
@@ -59,6 +59,19 @@ const deleteUser = async (req: Request, res: Response) => {
   await User.destroy({ where: { id } });
   res.status(200).send("User is deleted!");
 };
+
+// 6. connect one to many relation User and Reviews
+
+// const getUserReviews =async (req:Request, res:Response) => {
+//   let id = req.body.id
+//   const users = await User.findAll({
+//     include:[{
+//       model: Review,
+//       as: 'review'
+//     }],
+//     where: {id}
+//   })
+// }
 
 export const userController = {
   getAllUser,
